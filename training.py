@@ -22,7 +22,7 @@ class Metric(object):
     self._init_val = torch.FloatTensor([init_val]).to(device)
     self._val = self._init_val.clone().detach()
     self._cnt = 0
-    self._name = name
+    self.name = name
   
   def accumulate(self, **kwargs) -> None:  # could modify to return computed val
     self._val += self._fn(**kwargs)
