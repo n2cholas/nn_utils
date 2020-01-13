@@ -175,8 +175,9 @@ class Trainer(object):
 
     except KeyboardInterrupt:
       print(f'Training terminated by Keyboard Interrupt' )
-      self.finish()
-
+    
+    self.finish()
+    print('Successfully completed training.')
     return state_dict
 
   def _log_scalar(self, 
