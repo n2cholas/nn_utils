@@ -9,7 +9,7 @@ _ARGDICT = {
   'lr':      {'help': 'Learning Rate', 'type': float},
   'wd':      {'help': 'Weight Decay', 'type': float},
   'bs':      {'help': 'Batch Size', 'type': float},
-  'steps':   {'help': 'Num Steps', 'type': float},
+  'steps':   {'help': 'Num Steps', 'type': int},
   'mom':     {'help': 'Momentum', 'type': float},
   'maxlr':   {'help': 'Maximum Learning Rate', 'type': float},
   'maxmom':  {'help': 'Maximum Momentum', 'type': float},
@@ -22,7 +22,7 @@ def get_argparser(**kwargs) -> argparse.ArgumentParser:
   """Pass in the required flags with their defaults."""
   parser = argparse.ArgumentParser()
   for arg, default in kwargs.items():
-    parser.add_argument(f'-{arg}', default=default, **_ARGDICT.get(arg, {}))
+    parser.add_argument(f'--{arg}', default=default, **_ARGDICT.get(arg, {}))
     if arg not in _ARGDICT:
       warnings.warn(f'nn_utils.scripting.py does not recongize '
                     '{arg} as a default command line argument.')
